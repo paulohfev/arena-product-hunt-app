@@ -1,37 +1,90 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { useQuery } from '@apollo/client'
 
-import { GET_POPULAR_POSTS } from '@/graphql/queries'
+import { GET_POSTS } from '@/graphql/queries'
 import { Post } from '@/types/Post'
+import { PostQueryData } from '@/types/PostQueryData'
 
+import LoadingSpinner from '../LoadingSpinner'
 import PostCard from '../PostCard'
-import { LoadingSpinner, PostsList, TabButton, TabsControls } from './PostsTabList.styled'
+import { PostsList, TabButton, TabsControls } from './PostsTabList.styled'
 
-type TabType = 'popular' | 'recent'
+enum TabType {
+  POPULAR = 'popular',
+  RECENT = 'recent',
+}
+
+const POSTS_PER_PAGE = 10
 
 const PostsTabList = () => {
-  const [activeTab, setActiveTab] = useState<TabType>('popular')
-  const { data, loading } = useQuery<{ posts: { nodes: Post[] } }>(GET_POPULAR_POSTS)
-  const posts = data?.posts?.nodes
+  const [activeTab, setActiveTab] = useState<TabType>(TabType.POPULAR)
+  const observerRef = useRef<IntersectionObserver | null>(null)
+  const loadMoreRef = useRef<HTMLDivElement>(null)
+
+  const { data, loading, fetchMore } = useQuery<PostQueryData>(GET_POSTS, {
+    variables: {
+      order: activeTab === TabType.POPULAR ? 'VOTES' : 'NEWEST',
+      first: POSTS_PER_PAGE,
+    },
+  })
+
+  const posts = data?.posts?.nodes || []
+  const hasNextPage = data?.posts?.pageInfo.hasNextPage
+  const endCursor = data?.posts?.pageInfo.endCursor
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && hasNextPage && !loading) {
+          fetchMore({
+            variables: {
+              after: endCursor,
+              first: POSTS_PER_PAGE,
+            },
+            updateQuery: (prev, { fetchMoreResult }) => {
+              if (!fetchMoreResult) return prev
+              return {
+                posts: {
+                  ...fetchMoreResult.posts,
+                  nodes: [...prev.posts.nodes, ...fetchMoreResult.posts.nodes],
+                },
+              }
+            },
+          })
+        }
+      },
+      { threshold: 1.0 }
+    )
+
+    if (loadMoreRef.current) {
+      observer.observe(loadMoreRef.current)
+    }
+
+    observerRef.current = observer
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect()
+      }
+    }
+  }, [fetchMore, hasNextPage, loading, endCursor])
 
   return (
     <div>
       <TabsControls>
-        <TabButton $isActive={activeTab === 'popular'} onClick={() => setActiveTab('popular')}>
+        <TabButton $isActive={activeTab === TabType.POPULAR} onClick={() => setActiveTab(TabType.POPULAR)}>
           Popular
         </TabButton>
-        <TabButton $isActive={activeTab === 'recent'} onClick={() => setActiveTab('recent')}>
+        <TabButton $isActive={activeTab === TabType.RECENT} onClick={() => setActiveTab(TabType.RECENT)}>
           Recent
         </TabButton>
       </TabsControls>
 
       <PostsList>
-        {loading ? (
-          <LoadingSpinner>Loading more posts...</LoadingSpinner>
-        ) : (
-          posts?.map((post: Post) => <PostCard key={post.id} post={post} />)
-        )}
+        {loading ? <LoadingSpinner /> : posts.map((post: Post) => <PostCard key={post.id} post={post} />)}
+
+        <div ref={loadMoreRef} style={{ height: '20px' }}></div>
       </PostsList>
     </div>
   )
