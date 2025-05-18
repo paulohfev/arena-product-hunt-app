@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client'
 
-export const GET_POPULAR_POSTS = gql`
-  query {
-    posts(order: VOTES, first: 10) {
+export const GET_POSTS = gql`
+  query GetPosts($order: PostsOrder!, $first: Int!, $after: String) {
+    posts(order: $order, first: $first, after: $after) {
       nodes {
         id
         name
@@ -12,6 +12,10 @@ export const GET_POPULAR_POSTS = gql`
         thumbnail {
           url
         }
+      }
+      pageInfo {
+        hasNextPage
+        endCursor
       }
     }
   }

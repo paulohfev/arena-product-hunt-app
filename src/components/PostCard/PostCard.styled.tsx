@@ -10,6 +10,7 @@ export const PostCardWrapper = styled.div`
   gap: 16px;
   margin-bottom: 1rem;
   padding: 16px;
+  width: 100%;
 
   &:hover {
     transform: translateY(-2px);

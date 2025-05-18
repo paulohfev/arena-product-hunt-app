@@ -24,14 +24,10 @@ export const TabButton = styled.div<{ $isActive: boolean }>`
   }
 `
 
-export const PostsList = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-`
-
-export const LoadingSpinner = styled.div`
-  text-align: center;
-  padding: 1rem;
-  color: #666;
+export const PostsList = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
 `
