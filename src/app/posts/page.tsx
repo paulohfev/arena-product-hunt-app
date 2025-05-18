@@ -1,5 +1,9 @@
+'use client'
+
+import PostsTabList from '@/components/PostsTabList'
+
 const PostsPage: React.FC = () => {
-  return <div>PostsPage</div>
+  return <PostsTabList />
 }
 
 export default PostsPage
