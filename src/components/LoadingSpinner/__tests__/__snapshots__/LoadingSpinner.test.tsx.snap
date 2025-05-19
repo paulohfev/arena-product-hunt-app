@@ -6,6 +6,7 @@ exports[`LoadingSpinner matches snapshot 1`] = `
     alt="loading"
     class="sc-66b55120-0 bzrstx"
     data-nimg="1"
+    data-testid="loading-spinner"
     decoding="async"
     height="48"
     loading="lazy"
