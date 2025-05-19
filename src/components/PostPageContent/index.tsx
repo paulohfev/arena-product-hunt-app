@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
 import { Post } from '@/types/Post'
@@ -6,6 +7,7 @@ import Button from '../Button'
 import {
   PostPageBody,
   PostPageButtonsWrapper,
+  PostPageContentButton,
   PostPageContentDescription,
   PostPageContentHeaderImage,
   PostPageContentText,
@@ -23,9 +25,9 @@ const PostPageContent: React.FC<PostPageContentProps> = ({ post }) => {
 
   return (
     <PostPageWrapper>
-      <Button backgroundColor='white' border='1px solid #e0e0e0' color='black' onClick={() => router.back()}>
-        Back
-      </Button>
+      <PostPageContentButton onClick={() => router.back()}>
+        <Image src='/icons/left-arrow.png' alt='Back' width={24} height={24} />
+      </PostPageContentButton>
 
       <PostPageContentWrapper $direction='column'>
         <PostPageBody>
