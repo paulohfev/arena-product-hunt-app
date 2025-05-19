@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 import { useQuery } from '@apollo/client'
+import { toast } from 'react-toastify'
 
 import { GET_POSTS } from '@/graphql/queries'
 import { Post } from '@/types/Post'
@@ -22,12 +23,18 @@ const PostsTabList = () => {
   const observerRef = useRef<IntersectionObserver | null>(null)
   const loadMoreRef = useRef<HTMLDivElement>(null)
 
-  const { data, loading, fetchMore } = useQuery<PostQueryData>(GET_POSTS, {
+  const { data, loading, error, fetchMore } = useQuery<PostQueryData>(GET_POSTS, {
     variables: {
       order: activeTab === TabType.POPULAR ? 'VOTES' : 'NEWEST',
       first: POSTS_PER_PAGE,
     },
   })
+
+  useEffect(() => {
+    if (error) {
+      toast.error('Failed to load posts. Please try again later.')
+    }
+  }, [error])
 
   const posts = data?.posts?.nodes || []
   const hasNextPage = data?.posts?.pageInfo.hasNextPage
@@ -42,7 +49,7 @@ const PostsTabList = () => {
               after: endCursor,
               first: POSTS_PER_PAGE,
             },
-            updateQuery: (prev, { fetchMoreResult }) => {
+            updateQuery: (prev: PostQueryData, { fetchMoreResult }: { fetchMoreResult?: PostQueryData }) => {
               if (!fetchMoreResult) return prev
               return {
                 posts: {

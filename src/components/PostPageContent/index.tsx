@@ -2,9 +2,9 @@ import { useRouter } from 'next/navigation'
 
 import { Post } from '@/types/Post'
 
+import Button from '../Button'
 import {
   PostPageBody,
-  PostPageButton,
   PostPageButtonsWrapper,
   PostPageContentDescription,
   PostPageContentHeaderImage,
@@ -23,9 +23,9 @@ const PostPageContent: React.FC<PostPageContentProps> = ({ post }) => {
 
   return (
     <PostPageWrapper>
-      <PostPageButton $backgroundColor='white' $border='1px solid #e0e0e0' $color='black' onClick={() => router.back()}>
+      <Button backgroundColor='white' border='1px solid #e0e0e0' color='black' onClick={() => router.back()}>
         Back
-      </PostPageButton>
+      </Button>
 
       <PostPageContentWrapper $direction='column'>
         <PostPageBody>
@@ -41,13 +41,13 @@ const PostPageContent: React.FC<PostPageContentProps> = ({ post }) => {
 
       <PostPageContentWrapper $direction='row'>
         <PostPageButtonsWrapper>
-          <PostPageButton $backgroundColor='white' $border='1px solid #e0e0e0' $color='black' disabled>
+          <Button backgroundColor='white' border='1px solid #e0e0e0' color='black' disabled>
             Get it
-          </PostPageButton>
+          </Button>
 
-          <PostPageButton $backgroundColor='#FF5733' $color='white' disabled>
+          <Button backgroundColor='#FF5733' color='white' disabled>
             Upvote ({post.votesCount})
-          </PostPageButton>
+          </Button>
         </PostPageButtonsWrapper>
       </PostPageContentWrapper>
     </PostPageWrapper>
