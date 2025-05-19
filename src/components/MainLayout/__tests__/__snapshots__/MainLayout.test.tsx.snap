@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainLayout matches snapshot 1`] = `
+<div>
+  <main
+    class="sc-cab4b9bd-0 igXLKM"
+  >
+    <div>
+      Test Content
+    </div>
+  </main>
+</div>
+`;

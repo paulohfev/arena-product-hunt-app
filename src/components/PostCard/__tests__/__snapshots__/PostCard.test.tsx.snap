@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostCard matches snapshot 1`] = `
+<div>
+  <a
+    class="sc-689d80bd-0 cqta-Dy"
+    href="/posts/1"
+  >
+    <div
+      class="sc-689d80bd-1 gihtda"
+    >
+      <img
+        alt="Test Post"
+        class="sc-689d80bd-4 jbEYvH"
+        data-nimg="1"
+        decoding="async"
+        height="48"
+        loading="lazy"
+        src="/_next/image?url=https%3A%2F%2Fexample.com%2Fimage.jpg&w=96&q=75"
+        srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Fimage.jpg&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Fimage.jpg&w=96&q=75 2x"
+        style="color: transparent;"
+        width="48"
+      />
+      <div
+        class="sc-689d80bd-2 cNTLXF"
+      >
+        <div
+          class="sc-689d80bd-3 jvqCyp"
+        >
+          <h4
+            class="sc-689d80bd-5 jrPwKY"
+          >
+            Test Post
+          </h4>
+          <p
+            class="sc-689d80bd-6 ctLJBT"
+          >
+            Test Tagline
+          </p>
+        </div>
+        <div
+          class="sc-689d80bd-7 dnAaWe"
+        >
+          <img
+            alt="vote"
+            data-nimg="1"
+            decoding="async"
+            height="12"
+            loading="lazy"
+            src="/_next/image?url=%2Ficons%2Ftriangle.png&w=32&q=75"
+            srcset="/_next/image?url=%2Ficons%2Ftriangle.png&w=16&q=75 1x, /_next/image?url=%2Ficons%2Ftriangle.png&w=32&q=75 2x"
+            style="color: transparent;"
+            width="12"
+          />
+          100
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+`;
