@@ -8,6 +8,9 @@ The root route of the application is automatically redirecting the user to `/pos
 - the page showing the list of posts is pathed to `/posts`
 - individual posts are pathed to: `/posts/:id`
 
+## Access the application live:
+Please feel free to access the application running live at: https://arena-product-hunt-app.vercel.app/
+
 ## Documentation
 Please refer to the following document for a list of improvements and enhancements, had I been given more time.
 - [Suggestions and Improvements](./SUGGESTIONS_IMPROVEMENTS.md)
