@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Arena Product Hunt App
+This is a sample application leveraging data from the Product Hunt API to render popular and recent posts.
+
+It was built using [Next.js](https://nextjs.org/), [React.js](https://react.dev/), [TypeScript](https://www.typescriptlang.org/) and [styled-components](https://styled-components.com/). In addition, [Apollo Client](https://www.apollographql.com/docs/react) was used for caching and data management, and [React Toastify](https://fkhadra.github.io/react-toastify/introduction/) was used to generate a helpful message with server errors.
+
+## Considerations
+The root route of the application is automatically redirecting the user to `/posts` route, as there is no content to render on the root route. The following pattern was taken into account:
+- the page showing the list of posts is pathed to `/posts`
+- individual posts are pathed to: `/posts/:id`
+
+## Documentation
+Please refer to the following document for a list of improvements and enhancements, had I been given more time.
+- [Suggestions and Improvements](./SUGGESTIONS_IMPROVEMENTS.md)
 
 ## Getting Started
 
-First, run the development server:
-
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd arena-product-hunt-app
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Environment variables
+In order to get the application up and running, you will need to create an account in [Product Hunt](https://www.producthunt.com/) and access their API dashboard. From there, create an application and make sure to give the redirect URI a value of `https://localhost:3000/users/auth/producthunt/callback`. Afterwards, you will be given a developer token - use this in respective environment variables:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+NEXT_PUBLIC_API_URL=https://api.producthunt.com/v2/api/graphql
+API_TOKEN=<developer token from Product Hunt>
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Install dependencies:
+```bash
+npm install
+```
 
-## Learn More
+4. Start the development server:
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+The application will be available at `http://localhost:3000`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Available Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Development
+- `npm run dev` - Start the development server with Turbopack
+- `npm run build` - Build the application for production
+- `npm run start` - Start the production server
 
-## Deploy on Vercel
+### Code Quality
+- `npm run lint` - Run ESLint to check for code issues
+- `npm run lint:fix` - Run ESLint and automatically fix issues
+- `npm run format` - Format code with Prettier
+- `npm run format:check` - Check if code is properly formatted
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Testing
+- `npm test` - Run all tests
+- `npm run test -- -u` - Updates snapshot testing
+- `npm run test:watch` - Run tests in watch mode
+- `npm run test:coverage` - Run tests with coverage report
