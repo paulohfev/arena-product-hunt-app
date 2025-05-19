@@ -1,6 +1,12 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 import styled from 'styled-components'
+
+export const PostCardLink = styled(Link)`
+  text-decoration: none;
+  width: 100%;
+`
 
 export const PostCardWrapper = styled.div`
   background-color: #ffffff;
