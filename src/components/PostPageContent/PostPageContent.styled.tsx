@@ -47,3 +47,22 @@ export const PostPageButtonsWrapper = styled.div`
   gap: 16px;
   width: 100%;
 `
+
+export const PostPageContentButton = styled.button`
+  align-items: center;
+  display: flex;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 16px;
+  color: #fff;
+  cursor: pointer;
+  justify-content: center;
+  padding: 10px;
+  transition: all 0.2s;
+  width: fit-content;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+`
