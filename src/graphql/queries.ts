@@ -9,6 +9,7 @@ export const GET_POSTS = gql`
         tagline
         votesCount
         url
+        slug
         thumbnail {
           url
         }
@@ -16,6 +17,36 @@ export const GET_POSTS = gql`
       pageInfo {
         hasNextPage
         endCursor
+      }
+    }
+  }
+`
+
+export const GET_POST_BY_ID = gql`
+  query GetPostById($id: ID!) {
+    post(id: $id) {
+      id
+      name
+      tagline
+      url
+      votesCount
+      createdAt
+      description
+      reviewsCount
+      thumbnail {
+        url
+      }
+      user {
+        name
+        username
+      }
+      topics {
+        edges {
+          node {
+            name
+            slug
+          }
+        }
       }
     }
   }

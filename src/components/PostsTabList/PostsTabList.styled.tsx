@@ -9,8 +9,8 @@ export const TabsControls = styled.div`
 `
 
 export const TabButton = styled.div<{ $isActive: boolean }>`
-  border-bottom: 2px solid ${({ $isActive }) => ($isActive ? 'orange' : 'transparent')};
-  color: ${({ $isActive }) => ($isActive ? 'orange' : 'grey')};
+  border-bottom: 2px solid ${({ $isActive }) => ($isActive ? '#FF5733' : 'transparent')};
+  color: ${({ $isActive }) => ($isActive ? '#FF5733' : 'grey')};
   cursor: pointer;
   display: flex;
   justify-content: center;
