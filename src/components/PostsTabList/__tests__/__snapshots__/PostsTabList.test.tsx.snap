@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostsTabList matches snapshot 1`] = `
+<div>
+  <div>
+    <div
+      class="sc-4a2dfd63-0 dxcazj"
+    >
+      <div
+        class="sc-4a2dfd63-1 klQrGv"
+      >
+        Popular
+      </div>
+      <div
+        class="sc-4a2dfd63-1 cJtVLR"
+      >
+        Recent
+      </div>
+    </div>
+    <div
+      class="sc-4a2dfd63-2 eLvWxQ"
+    >
+      <img
+        alt="loading"
+        class="sc-66b55120-0 bzrstx"
+        data-nimg="1"
+        decoding="async"
+        height="48"
+        loading="lazy"
+        src="/_next/image?url=%2Ficons%2Floading.png&w=96&q=75"
+        srcset="/_next/image?url=%2Ficons%2Floading.png&w=48&q=75 1x, /_next/image?url=%2Ficons%2Floading.png&w=96&q=75 2x"
+        style="color: transparent;"
+        width="48"
+      />
+      <div
+        style="height: 20px;"
+      />
+    </div>
+  </div>
+</div>
+`;

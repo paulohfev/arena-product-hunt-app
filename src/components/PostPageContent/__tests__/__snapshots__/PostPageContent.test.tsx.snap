@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostPageContent matches snapshot 1`] = `
+<div>
+  <div
+    class="sc-8fa4f82f-0 bxvMSM"
+  >
+    <button
+      class="sc-8fa4f82f-8 bnPtyx"
+    >
+      <img
+        alt="Back"
+        data-nimg="1"
+        decoding="async"
+        height="24"
+        loading="lazy"
+        src="/_next/image?url=%2Ficons%2Fleft-arrow.png&w=48&q=75"
+        srcset="/_next/image?url=%2Ficons%2Fleft-arrow.png&w=32&q=75 1x, /_next/image?url=%2Ficons%2Fleft-arrow.png&w=48&q=75 2x"
+        style="color: transparent;"
+        width="24"
+      />
+    </button>
+    <div
+      class="sc-8fa4f82f-1 jxdIQK"
+    >
+      <div
+        class="sc-8fa4f82f-2 cJTwmm"
+      >
+        <img
+          alt="Test Post"
+          class="sc-8fa4f82f-3 fKezKH"
+          data-nimg="1"
+          decoding="async"
+          height="64"
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fexample.com%2Fimage.jpg&w=128&q=75"
+          srcset="/_next/image?url=https%3A%2F%2Fexample.com%2Fimage.jpg&w=64&q=75 1x, /_next/image?url=https%3A%2F%2Fexample.com%2Fimage.jpg&w=128&q=75 2x"
+          style="color: transparent;"
+          width="64"
+        />
+        <div
+          class="sc-8fa4f82f-4 kTtCcz"
+        >
+          <h1
+            class="sc-8fa4f82f-5 fEJEZ"
+          >
+            Test Post
+          </h1>
+          <p
+            class="sc-8fa4f82f-6 dIarqa"
+          >
+            Test Description
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-8fa4f82f-1 gQZcwy"
+    >
+      <div
+        class="sc-8fa4f82f-7 fErWDg"
+      >
+        <button
+          class="sc-4e78a862-0 eKfrzH"
+          disabled=""
+        >
+          Get it
+        </button>
+        <button
+          class="sc-4e78a862-0 kgCbZp"
+          disabled=""
+        >
+          Upvote (
+          100
+          )
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

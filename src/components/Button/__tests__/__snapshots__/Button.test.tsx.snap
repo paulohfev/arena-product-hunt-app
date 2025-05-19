@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button matches snapshot 1`] = `
+<div>
+  <button
+    class="sc-4e78a862-0 eKfrzH"
+    disabled=""
+  >
+    Click me
+  </button>
+</div>
+`;
